@@ -1,0 +1,7 @@
+{
+  "editor.rulers": [95, 100],
+  "workbench.colorCustomizations": {
+    "editorRuler.foreground": "#333"
+  },
+  "typescript.preferences.importModuleSpecifier": "project-relative"
+}

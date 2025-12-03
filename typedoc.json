@@ -2,8 +2,8 @@
   "$schema": "https://typedoc.org/schema.json",
   "githubPages": true,
   "navigationLinks": {
-    "Repository": "https://github.com/xtsai/datav-mini3d",
-    "Issues": "https://github.com/xtsai/datav-mini3d/issues"
+    "Repository": "https://github.com/lotomicro/tslib-template",
+    "Issues": "https://github.com/lotomicro/tslib-template/issues"
   },
   "entryPoints": ["src/index.ts"],
   "entryPointStrategy": "resolve",

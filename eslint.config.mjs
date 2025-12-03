@@ -6,11 +6,7 @@ import eslintConfigPrettier from "eslint-config-prettier";
 
 /** @type import("eslint").Linter.Config */
 const config = {
-  extends: [
-    js.configs.recommended,
-    ...tseslint.configs.recommended,
-    eslintConfigPrettier,
-  ],
+  extends: [js.configs.recommended, ...tseslint.configs.recommended, eslintConfigPrettier],
   files: ["**/*.{ts,tsx,js,jsx,json}"],
   ignores: [
     "build/*",
@@ -25,6 +21,7 @@ const config = {
     "package.json",
     ".*",
     "commitlint.config.mjs",
+    "typedoc.json"
   ],
   plugins: {
     "@typescript-eslint": tseslint.plugin,

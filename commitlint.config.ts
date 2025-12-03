@@ -1,51 +1,51 @@
-import type { UserConfig } from '@commitlint/types';
+import type { UserConfig } from "@commitlint/types";
 
 /** @type {import("@commitlint/types").UserConfig} */
 const configuration: UserConfig = {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   ignores: [
     /** Ignore automatic release messages */
-    (commit) => commit.includes('chore(realease):'),
+    (commit) => commit.includes("chore(realease):"),
     /** Ignore merge commits */
-    (commit) => commit.includes('Merge '),
+    (commit) => commit.includes("Merge "),
     /**
      * Ignore long message body lines caused by squash
      * merges with merge commits annotations
      */
-    (commit) => commit.includes('(#') && commit.includes(')'),
+    (commit) => commit.includes("(#") && commit.includes(")"),
   ],
   rules: {
-    'scope-case': [
+    "scope-case": [
       2,
-      'always',
+      "always",
       [
-        'lower-case',
-        'sentence-case',
-        'start-case',
-        'pascal-case',
-        'snake-case',
-        'upper-case',
-        'kebab-case',
+        "lower-case",
+        "sentence-case",
+        "start-case",
+        "pascal-case",
+        "snake-case",
+        "upper-case",
+        "kebab-case",
       ],
     ],
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'build',
-        'chore',
-        'ci',
-        'docs',
-        'feat',
-        'fix',
-        'perf',
-        'refactor',
-        'revert',
-        'style',
-        'test',
+        "build",
+        "chore",
+        "ci",
+        "docs",
+        "feat",
+        "fix",
+        "perf",
+        "refactor",
+        "revert",
+        "style",
+        "test",
       ],
     ],
-    'subject-empty': [2, 'never'],
+    "subject-empty": [2, "never"],
   },
 };
 export default configuration;
