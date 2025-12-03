@@ -10,15 +10,15 @@ local_branch_name="$(git rev-parse --abbrev-ref HEAD)"
 
 # HEAD - prevent rebases from failing
 # master|develop - prevent main / protected branches (ci) from failing 
-# valid_branch_regex='^(((fix|feat|refactor|test|tests|dev|docs|ci)\/[a-zA-Z0-9\-]+)|main|develop|base-template|HEAD)$'
+valid_branch_regex='^(((fix|feat|refactor|test|tests|dev|docs|ci)\/[a-zA-Z0-9\-]+)|main|develop|base-template|HEAD)$'
 
-# message="\n\nWrong branch name ("$local_branch_name").\nBranch names should match: $valid_branch_regex. Your commit will be rejected.\n\n"
+message="\n\nWrong branch name ("$local_branch_name").\nBranch names should match: $valid_branch_regex. Your commit will be rejected.\n\n"
 
-# if [[ ! $local_branch_name =~ $valid_branch_regex ]]; then
-#     echo "$message"
-#     exit 1
-# fi
+if [[ ! $local_branch_name =~ $valid_branch_regex ]]; then
+    echo "$message"
+    exit 1
+fi
 
 # TODO test
-# npx --no-install npm run lint-staged
-# exit 0
+npx --no-install npm run lint-staged
+exit 0
