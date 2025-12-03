@@ -1,0 +1,94 @@
+{
+  "name": "@lotomic/common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "dev": "tsc -p tsconfig.build.json -w",
+    "build": "npm run clean:esm  && npm run build:esm",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "clean": "npm run clean:esm",
+    "clean:all": "rimraf dist && rimraf coverage && rimraf node_modules",
+    "clean:esm": "rimraf dist",
+    "docs": "typedoc",
+    "lint": "eslint \"src/**/*.ts\" --fix",
+    "lint-staged": "lint-staged",
+    "format": "prettier \"**/**/*.{ts,tsx,js,json,mjs}\" --write --cache --ignore-unknown",
+    "test": "jest --config ./jest.config.ts --runInBand --colors --onlyChanged",
+    "todo": "npx leasot '**/**' '.**/**' -i '**/node_modules/**' -S -x",
+    "change:empty": "changeset add --empty",
+    "vp": "pnpm changeset version",
+    "publish:only": "changeset publish --registry=https://registry.npmjs.com/",
+    "prerelease": "pnpm test:all && pnpm build && pnpm vp",
+    "release": "pnpm publish:only",
+    "postrelease": "pnpm push:changelog",
+    "push:changelog": "node build/scripts/push-changelog.mjs",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": {
+    "name": "lanbery",
+    "email": "lanbery@gmail.com",
+    "url": "https://open.xtsai.cn"
+  },
+  "license": "MIT",
+  "files": [
+    "dist",
+    "!*.tsbuildinfo",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "lint-staged": {
+    "*.{html,jsx,tsx,scss,css,sass,md}": [
+      "prettier \"**/**/*.{ts,js,json,tsx,mjs,html}\" --cache --ignore-path ./.prettierignore --write"
+    ],
+    "*.{js,ts,tsx,json,jsx}": [
+      "pnpm run lint"
+    ]
+  },
+  "types": "./dist/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "npm": {
+    "publish": false
+  },
+  "engines": {
+    "node": "^18 || >=20"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.2",
+    "@changesets/cli": "^2.29.8",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@commitlint/types": "^19.8.1",
+    "@eslint/eslintrc": "3.2.0",
+    "@eslint/js": "9.18.0",
+    "@jest/globals": "^30.2.0",
+    "@types/jest": "^30.0.0",
+    "eslint": "9.18.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.4",
+    "globals": "16.0.0",
+    "husky": "^9.1.7",
+    "jest": "^30.2.0",
+    "jiti": "^2.6.1",
+    "lint-staged": "^16.2.7",
+    "prettier": "3.4.2",
+    "rimraf": "^6.1.2",
+    "ts-jest": "^29.4.6",
+    "ts-node": "^10.9.2",
+    "typedoc": "^0.28.15",
+    "typescript": "5.7.3",
+    "typescript-eslint": "8.48.1"
+  }
+}
