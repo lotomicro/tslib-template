@@ -16,6 +16,7 @@
     "lint-staged": "lint-staged",
     "format": "prettier \"**/**/*.{ts,tsx,js,json,mjs}\" --write --cache --ignore-unknown",
     "test": "jest --config ./jest.config.ts --runInBand --colors --onlyChanged",
+    "test:all": "jest --config ./jest.config.ts --runInBand --colors",
     "todo": "npx leasot '**/**' '.**/**' -i '**/node_modules/**' -S -x",
     "change:empty": "changeset add --empty",
     "vp": "pnpm changeset version",
